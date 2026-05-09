@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joining your SMRTscan workspace…</title>
+  <meta name="description" content="Tap to open the invite in SMRTscan." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f3ff;
+      color: #1f1c2e;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .logo-circle {
+      width: 88px; height: 88px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 32px rgba(124, 58, 237, 0.35);
+      margin-bottom: 24px;
+    }
+    .logo-circle svg { width: 44px; height: 44px; color: #fff; }
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: #1f1c2e;
+    }
+    p {
+      font-size: 15px;
+      line-height: 22px;
+      color: #525068;
+      max-width: 320px;
+      margin-bottom: 18px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      color: #fff;
+      box-shadow: 0 14px 26px rgba(124, 58, 237, 0.32);
+    }
+    .btn-primary:active { transform: translateY(1px); }
+    .btn-secondary {
+      color: #525068;
+      background: transparent;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .footer {
+      position: absolute;
+      bottom: 24px;
+      font-size: 11px;
+      color: #9b97ad;
+    }
+    .invalid {
+      color: #b45309;
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      padding: 14px 16px;
+      border-radius: 12px;
+      max-width: 360px;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-circle" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7v6c0 5 4 9 10 9s10-4 10-9V7L12 2zm0 4l6 3v4c0 3-3 6-6 6s-6-3-6-6V9l6-3z"/></svg>
+  </div>
+
+  <h1>Opening SMRTscan…</h1>
+  <p id="status-message">If the app doesn't open in a moment, tap the button below.</p>
+  <div id="error-card" class="invalid" style="display:none;">
+    This invite link is missing or invalid. Ask the person who invited you to send a fresh link.
+  </div>
+
+  <a id="open-app" class="btn btn-primary" href="#">Open in SMRTscan</a>
+  <a class="btn btn-secondary" href="https://apps.apple.com/app/id6758223853" target="_blank" rel="noreferrer">
+    Don't have the app? Get SMRTscan
+  </a>
+
+  <p class="footer">smrtscan.app · privacy-first receipts &amp; accounting</p>
+
+  <script>
+    (function () {
+      var path = window.location.pathname || '';
+      var match = path.match(/\/smrtscan\/join\/([A-Za-z0-9_-]+)/);
+      var token = match ? match[1] : null;
+      var openLink = document.getElementById('open-app');
+      var errorCard = document.getElementById('error-card');
+      var status = document.getElementById('status-message');
+
+      if (!token) {
+        openLink.style.display = 'none';
+        errorCard.style.display = 'block';
+        status.style.display = 'none';
+        return;
+      }
+
+      var deepLink = 'smrtscan://join/' + token;
+      openLink.setAttribute('href', deepLink);
+
+      // Auto-trigger the deep link on load. iOS prompts "Open in SMRTscan?" if
+      // the app is installed; otherwise nothing happens and the user can tap
+      // the App Store link below to install.
+      try {
+        window.location.replace(deepLink);
+      } catch (e) {
+        // setAttribute already done; user can tap the visible button.
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["65BSDV2PJL.com.vonjordi.smrtscan"],
+        "components": [
+          {
+            "/": "/smrtscan/join/*",
+            "comment": "Workspace invitation deep links"
+          }
+        ]
+      }
+    ]
+  }
+}
