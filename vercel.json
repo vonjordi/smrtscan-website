@@ -1,7 +1,7 @@
 {
   "rewrites": [
-    { "source": "/smrtscan/join/:token", "destination": "/smrtscan/join.html" },
-    { "source": "/smrtscan/join/:token/", "destination": "/smrtscan/join.html" }
+    { "source": "/join/:token", "destination": "/join.html" },
+    { "source": "/join/:token/", "destination": "/join.html" }
   ],
   "headers": [
     {

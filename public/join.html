@@ -108,7 +108,7 @@
   <script>
     (function () {
       var path = window.location.pathname || '';
-      var match = path.match(/\/smrtscan\/join\/([A-Za-z0-9_-]+)/);
+      var match = path.match(/\/join\/([A-Za-z0-9_-]+)/);
       var token = match ? match[1] : null;
       var openLink = document.getElementById('open-app');
       var errorCard = document.getElementById('error-card');
