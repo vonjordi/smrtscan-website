@@ -107,9 +107,20 @@
 
   <script>
     (function () {
-      var path = window.location.pathname || '';
-      var match = path.match(/\/join\/([A-Za-z0-9_-]+)/);
-      var token = match ? match[1] : null;
+      // Token can come from either:
+      //   - Path: /join/<token>/   (preferred — works as a Universal Link)
+      //   - Query: /join/?t=<token>  (fallback for Next.js export quirks
+      //     where /join/<token>/ 404s because no static file exists there)
+      var token = null;
+      try {
+        var params = new URLSearchParams(window.location.search);
+        token = params.get('t');
+      } catch (e) { /* older browsers */ }
+      if (!token) {
+        var path = window.location.pathname || '';
+        var match = path.match(/\/join\/([A-Za-z0-9_-]+)/);
+        token = match ? match[1] : null;
+      }
       var openLink = document.getElementById('open-app');
       var errorCard = document.getElementById('error-card');
       var status = document.getElementById('status-message');

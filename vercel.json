@@ -1,7 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/join/:path*", "destination": "/join/index.html" }
-  ],
   "headers": [
     {
       "source": "/.well-known/apple-app-site-association",
