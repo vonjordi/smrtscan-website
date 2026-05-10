@@ -4,10 +4,8 @@ node_modules/
 .pnp.js
 
 # Build
-.next/
-out/
-build/
 dist/
+build/
 
 # Misc
 .DS_Store
@@ -25,6 +23,6 @@ yarn-error.log*
 # Vercel
 .vercel
 
-# TypeScript
-*.tsbuildinfo
-next-env.d.ts
+# IDE
+.vscode/
+.idea/
