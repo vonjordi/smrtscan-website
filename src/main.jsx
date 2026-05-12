@@ -1430,7 +1430,11 @@ function SceneCanvas({ progress }) {
       spine.position.y = camera.position.y - 1.85 + deep * 3.65 - artifact * 1.15;
       spine.position.x = -deep * (window.innerWidth < 700 ? 0.12 : 0.34) + artifact * 0.46;
       spine.position.z = -0.2 - deep * 0.5;
-      spine.rotation.y = -0.16 + deep * Math.PI * 0.525 + time * (0.0075 + deep * 0.0125);
+      // Pure scroll-driven; do NOT add a `time * ...` term here. spine is
+      // invisible, but spine.rotation.y feeds into trunkSpin → spiralAngle below
+      // and propagates into every card's position + rotation, so any wall-clock
+      // component drifts the card layout out of sync while the page sits open.
+      spine.rotation.y = -0.16 + deep * Math.PI * 0.525;
       spine.rotation.x = Math.sin(time * 0.22 + p * Math.PI * 0.8) * (0.014 + deep * 0.02);
       spine.children.forEach((child, index) => {
         if (child.material?.opacity !== undefined && child.type === 'Line') {
