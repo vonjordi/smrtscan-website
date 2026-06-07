@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMRTscan Support</title>
+  <meta name="description" content="Get help with SMRTscan — receipt scanning, accounts, subscriptions, and data. Contact our support team." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.inspiracube.com/smrtscan/support/" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #020713;
+      --ink: #f3feff;
+      --muted: rgba(218, 248, 255, 0.68);
+      --muted-strong: rgba(218, 248, 255, 0.82);
+      --rule: rgba(216, 255, 255, 0.12);
+      --rule-strong: rgba(216, 255, 255, 0.22);
+      --surface: rgba(11, 23, 43, 0.62);
+      --cyan: #06b6d4;
+      --pink: #ec4899;
+      --violet: #7c5cff;
+      --font-display: 'Archivo', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-ui: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 8% 8%, rgba(42, 255, 213, 0.16), transparent 28vw),
+        radial-gradient(circle at 92% 4%, rgba(11, 178, 210, 0.14), transparent 26vw),
+        radial-gradient(circle at 50% 110%, rgba(124, 92, 255, 0.16), transparent 32vw),
+        var(--bg);
+      color: var(--ink);
+      font-family: var(--font-ui);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: var(--cyan); text-decoration: none; transition: color 0.15s ease; }
+    a:hover { color: var(--ink); }
+
+    /* nav */
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 18px; padding: 18px 22px;
+      background: linear-gradient(180deg, rgba(2,7,19,0.85), rgba(2,7,19,0.55) 60%, transparent);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-content {
+      width: 100%; max-width: 1080px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 18px;
+    }
+    .logo {
+      font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+      letter-spacing: -0.01em; color: rgba(246, 255, 255, 0.92);
+    }
+    .logo .inspira { color: var(--ink); }
+    .logo .cube-text {
+      background: linear-gradient(135deg, var(--cyan), var(--violet));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .nav-links {
+      display: flex; gap: 4px; padding: 5px;
+      border: 1px solid var(--rule-strong); border-radius: 999px;
+      background: rgba(11, 23, 43, 0.4);
+    }
+    .nav-links a {
+      display: inline-flex; align-items: center; padding: 6px 14px;
+      border-radius: 999px; font-size: 0.8rem; font-weight: 500;
+      color: var(--muted-strong); letter-spacing: 0.02em;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .nav-links a:hover, .nav-links a[aria-current="page"] {
+      background: rgba(6, 182, 212, 0.12); color: var(--ink);
+    }
+    @media (max-width: 600px) { .nav-links a { padding: 6px 10px; font-size: 0.74rem; } }
+
+    /* page */
+    .page { max-width: 760px; margin: 0 auto; padding: 56px 28px 96px; }
+    .app-icon {
+      width: 132px; height: 132px;
+      display: block; margin-bottom: 20px;
+      filter: drop-shadow(0 12px 36px rgba(6, 182, 212, 0.45));
+    }
+    .eyebrow {
+      display: inline-block; font-family: var(--font-display);
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--cyan); margin-bottom: 18px;
+    }
+    h1 {
+      font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em;
+      color: var(--ink); font-size: clamp(2.4rem, 5vw, 3.4rem);
+      line-height: 1.05; margin-bottom: 16px;
+    }
+    .lede { font-size: 1.08rem; color: var(--muted-strong); max-width: 600px; margin-bottom: 36px; }
+    h2 {
+      font-family: var(--font-display); font-weight: 700; color: var(--ink);
+      font-size: 1.35rem; margin: 48px 0 14px; padding-top: 28px;
+      border-top: 1px solid var(--rule); letter-spacing: -0.01em;
+    }
+    h2:first-of-type { padding-top: 0; border-top: 0; margin-top: 0; }
+    h3 { font-family: var(--font-display); font-size: 1.02rem; color: var(--muted-strong); margin: 24px 0 6px; font-weight: 600; }
+    p { color: var(--muted); margin: 0 0 14px; }
+    p strong, li strong { color: var(--ink); font-weight: 600; }
+    ul { padding-left: 22px; margin: 0 0 18px; }
+    li { color: var(--muted); margin-bottom: 8px; }
+
+    /* contact card */
+    .contact-card {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 18px; padding: 26px 28px; margin: 0 0 12px;
+      border: 1px solid var(--rule-strong); border-radius: 18px;
+      background: var(--surface);
+    }
+    .contact-card .label {
+      font-family: var(--font-display); font-size: 0.74rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 6px;
+    }
+    .contact-card .email { font-size: 1.25rem; font-weight: 600; color: var(--ink); font-family: var(--font-display); }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 0.92rem;
+      color: var(--bg); background: linear-gradient(135deg, var(--cyan), var(--violet));
+      box-shadow: 0 10px 36px rgba(6, 182, 212, 0.4);
+      transition: transform 0.15s ease, box-shadow 0.15s ease; white-space: nowrap;
+    }
+    .btn-primary:hover { color: var(--bg); transform: translateY(-1px); box-shadow: 0 14px 44px rgba(6, 182, 212, 0.5); }
+    .response-note { font-size: 0.88rem; color: var(--muted); margin-bottom: 0; }
+
+    /* checklist box */
+    .tips {
+      padding: 20px 24px; margin: 18px 0 8px;
+      border: 1px solid var(--rule); border-radius: 14px; background: var(--surface);
+    }
+    .tips ul { margin: 0; }
+
+    /* footer */
+    .footer {
+      border-top: 1px solid var(--rule); padding: 28px 22px 40px; margin-top: 80px;
+      text-align: center; font-size: 0.82rem; color: var(--muted);
+    }
+    .footer-content { max-width: 1080px; margin: 0 auto; }
+    .footer p { margin: 0 0 4px; color: var(--muted); }
+    .footer-links { display: inline-flex; flex-wrap: wrap; gap: 18px; margin-top: 10px; }
+    .footer-links a { color: var(--muted-strong); }
+    .footer-links a:hover { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="logo"><span class="inspira">Inspira</span><span class="cube-text">Cube</span></a>
+      <div class="nav-links">
+        <a href="/smrtscan">SMRTscan</a>
+        <a href="/smrtscan/support/" aria-current="page">Support</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page">
+    <img class="app-icon" src="/smrtscan-brain.png" width="132" height="132" alt="SMRTscan" />
+    <span class="eyebrow">SMRTscan Support</span>
+    <h1>How can we help?</h1>
+    <p class="lede">
+      Questions about scanning receipts, your account, subscriptions, or your data —
+      we're a small team and we read every message.
+    </p>
+
+    <div class="contact-card">
+      <div>
+        <div class="label">Email us</div>
+        <a class="email" href="mailto:hello@inspiracube.com?subject=SMRTscan%20Support">hello@inspiracube.com</a>
+      </div>
+      <a class="btn-primary" href="mailto:hello@inspiracube.com?subject=SMRTscan%20Support&body=Describe%20your%20issue%20here.%0A%0A--%0AiPhone%20model%3A%0AiOS%20version%3A%0ASMRTscan%20version%3A">Send an email</a>
+    </div>
+    <p class="response-note">We typically reply within <strong>1–2 business days</strong>.</p>
+
+    <h2>Before you write</h2>
+    <p>Including a few details helps us solve your issue on the first reply:</p>
+    <div class="tips">
+      <ul>
+        <li>Your <strong>iPhone model</strong> and <strong>iOS version</strong> (Settings → General → About)</li>
+        <li>Your <strong>SMRTscan version</strong> (Settings tab, shown at the bottom)</li>
+        <li>A description of what you expected vs. what happened</li>
+        <li>A screenshot, if the issue is visual</li>
+      </ul>
+    </div>
+
+    <h2>Scanning &amp; receipts</h2>
+
+    <h3>How does scanning work?</h3>
+    <p>
+      Point your camera at a receipt and SMRTscan captures it, then reads it automatically — pulling out the
+      <strong>merchant</strong>, <strong>date</strong>, <strong>total</strong>, <strong>GST/HST</strong>, and
+      individual <strong>line items</strong>. The extracted receipt opens on a detail screen where you can review
+      and adjust anything before saving.
+    </p>
+
+    <h3>A receipt didn't scan or extracted the wrong details</h3>
+    <p>
+      Accuracy depends on the photo, so for best results:
+    </p>
+    <ul>
+      <li>Get the <strong>whole receipt in frame</strong>, including the top (merchant) and bottom (totals)</li>
+      <li>Lay it <strong>flat</strong> and avoid shadows, glare, and creases</li>
+      <li>Use even, bright lighting — faded thermal receipts scan better with more light</li>
+    </ul>
+    <p>
+      You can always tap any field on the receipt detail screen to <strong>correct it by hand</strong>. Your edits
+      are saved and used as-is for totals and tax, so a wrong scan never means re-doing everything.
+    </p>
+
+    <h3>Can I add a receipt I already have as a photo or PDF?</h3>
+    <p>
+      Yes — alongside live camera capture you can bring in an existing image of a receipt, and it runs through the
+      same extraction. If something doesn't import the way you expect, send us the file and we'll look into it.
+    </p>
+
+    <h3>Is there a limit on how many receipts I can scan?</h3>
+    <p>
+      Your plan includes a monthly allowance of <strong>AI-powered scans</strong>. If you reach it, you can still
+      add and edit receipts manually, and the allowance resets at the start of your next billing period. Your exact
+      allowance is shown in the app on the subscription screen.
+    </p>
+
+    <h2>Taxes &amp; deductions</h2>
+
+    <h3>How does SMRTscan handle GST/HST and my tax position?</h3>
+    <p>
+      As you scan, SMRTscan captures the <strong>GST/HST</strong> on each receipt and rolls it into your overall
+      <strong>tax position</strong> so you can see your input tax credits and deductible spending add up over time,
+      rather than tallying it manually at year-end.
+    </p>
+
+    <h3>What is SMRTaudit?</h3>
+    <p>
+      <strong>SMRTaudit</strong> reviews your receipts and flags things worth a second look — missing details,
+      possible duplicates, or entries that may need attention — so your records are clean and defensible before
+      you file or hand them to an accountant.
+    </p>
+
+    <h3>What is the deduction guide?</h3>
+    <p>
+      The <strong>deduction guide</strong> helps you understand which expenses are typically deductible and how to
+      categorize them, so more of your eligible spending actually makes it onto your return. It's guidance to help
+      you organize — not a substitute for advice from a qualified tax professional.
+    </p>
+
+    <h3>How does mileage tracking work?</h3>
+    <p>
+      The <strong>mileage tracker</strong> lets you log business trips and keeps a running record you can use toward
+      vehicle deductions, kept in one place alongside your receipts.
+    </p>
+
+    <h2>Documents, accounting &amp; export</h2>
+
+    <h3>What are PDF documents?</h3>
+    <p>
+      Beyond individual receipts, SMRTscan can keep <strong>PDF documents</strong> — invoices, statements, and other
+      records — organized in the same place, so everything for your books lives together.
+    </p>
+
+    <h3>How do I export my receipts and reports?</h3>
+    <p>
+      You can export your receipts and PDF documents from within the app to share with your accountant or keep your
+      own copy. If you need a <strong>full export</strong> of your data in a specific format, email us and we'll help.
+    </p>
+
+    <h3>Can I share data with my accountant or team?</h3>
+    <p>
+      SMRTscan supports <strong>workspaces</strong> so a business's receipts and documents can be kept together and
+      shared with the right people. If you're moving from a personal setup to a shared workspace, or inviting someone,
+      and run into trouble, send us a note — we can help sort it out.
+    </p>
+
+    <h2>Account, subscription &amp; privacy</h2>
+
+    <h3>How do I manage or cancel my subscription?</h3>
+    <p>
+      Subscriptions are billed through Apple. Open the iOS <strong>Settings</strong> app → tap your name →
+      <strong>Subscriptions</strong> → <strong>SMRTscan</strong> to change or cancel. Cancelling stops future
+      renewals; you keep access until the end of the current period.
+    </p>
+
+    <h3>How do I restore a purchase on a new device?</h3>
+    <p>
+      Sign in with the same Apple ID you subscribed with, then use <strong>Restore Purchases</strong> in the app's
+      settings. If your subscription doesn't reappear, email us and we'll get it sorted.
+    </p>
+
+    <h3>Is my data private?</h3>
+    <p>
+      SMRTscan is built privacy-first. See our <a href="/privacy">Privacy Policy</a> for exactly what's
+      collected and how it's handled.
+    </p>
+
+    <h3>How do I delete my account and data?</h3>
+    <p>
+      Email us from the address on your account and we'll permanently delete your account and associated data.
+      You can also review our <a href="/terms">Terms of Service</a> for details on your account.
+    </p>
+
+    <h2>Get the app</h2>
+    <p>
+      Don't have SMRTscan yet? <a href="https://apps.apple.com/app/id6758223853" target="_blank" rel="noreferrer">Download it on the App Store</a>.
+    </p>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2026 1001474709 Ontario Inc. operating as Inspira Cube</p>
+      <p>Guelph, Ontario, Canada</p>
+      <div class="footer-links">
+        <a href="/smrtscan">SMRTscan</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="mailto:hello@inspiracube.com?subject=SMRTscan%20Support">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
